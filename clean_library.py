@@ -1,3 +1,5 @@
+#! /usr/bin/env python2.7
+
 """
 Clean up the mess that Mendeley leaves behind when it exports to BibTeX:
 
@@ -16,6 +18,8 @@ ids_seen = set()
 
 start_entry_re = re.compile('@\w+{(?P<id>\w+),')
 exclude_line_re = re.compile('^(month|url)')
+
+print "Cleaned! Just like that!\n"
 
 for line in sys.stdin:
     m = start_entry_re.match(line)
