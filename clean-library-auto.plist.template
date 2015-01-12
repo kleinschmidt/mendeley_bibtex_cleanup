@@ -6,11 +6,11 @@
     <string>auto-clean-mendeley-library</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/dkleinschmidt/Documents/papers/clean-library-auto.sh</string>
+        <string>{{LIBRARYDIR}}clean-library-auto.sh</string>
     </array>
     <key>WatchPaths</key>
     <array>
-        <string>/Users/dkleinschmidt/Documents/papers/library.bib</string>
+        <string>{{LIBRARYDIR}}library.bib</string>
     </array>
 </dict>
 </plist>
