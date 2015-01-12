@@ -7,11 +7,10 @@ from bibtexparser.bparser import BibTexParser
 from bibtexparser.customization import homogeneize_latex_encoding
 import sys
 
-filename = "library.bib"
-with open(filename) as bib_file:
-    parser = BibTexParser()
-    parser.customization = homogeneize_latex_encoding
-    bib = bibtexparser.load(bib_file, parser=parser)
+parser = BibTexParser()
+parser.customization = homogeneize_latex_encoding
+
+bib = bibtexparser.load(sys.stdin, parser=parser)
 
 ## loop over entries, removing dupes
 entries_nodupes = []
@@ -22,8 +21,6 @@ for entry in bib.entries:
         entries_nodupes.append(entry)
 bib.entries = entries_nodupes
 
+## write output to stdout
 bib_string = bibtexparser.dumps(bib)
-
-output_filename = "library_out.bib"
-with open(output_filename, "w") as bib_output_file:
-    bib_output_file.write(bib_string.encode('utf-8'))
+sys.stdout.write(bib_string.encode('utf-8'))
